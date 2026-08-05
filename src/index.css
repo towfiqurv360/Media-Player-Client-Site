@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* বেসিক বডি রিসেট (ঐচ্ছিক কিন্তু ভালো প্র্যাকটিস) */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
