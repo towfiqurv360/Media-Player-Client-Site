@@ -5,11 +5,11 @@ import AnimePlayer from './components/AnimePlayer';
 function App() {
   const [inputLink, setInputLink] = useState('');
   const [activeMagnet, setActiveMagnet] = useState('');
-  const [error, setError] = useState(''); // নতুন স্টেট: এরর মেসেজ দেখানোর জন্য
+  const [error, setError] = useState('');
 
   const handlePlay = (e) => {
     e.preventDefault();
-    setError(''); // সাবমিট করার সময় পুরনো এরর ক্লিয়ার করা
+    setError('');
 
     const link = inputLink.trim();
 
@@ -18,7 +18,7 @@ function App() {
       return;
     }
 
-    // ভ্যালিডেশন: লিঙ্কটি আসলেই ম্যাগনেট লিঙ্ক কিনা তা চেক করা
+
     if (!link.startsWith('magnet:?')) {
       setError('Invalid format! The link must start with "magnet:?"');
       return;
@@ -29,7 +29,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0f0f11] text-gray-200 font-sans selection:bg-red-500/30">
-      {/* নেভিগেশন বার */}
+      { }
       <nav className="border-b border-gray-800 bg-[#141416]/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
           <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ function App() {
       </nav>
 
       <main className="max-w-5xl mx-auto px-4 py-8 md:py-12">
-        {/* ইনপুট সেকশন */}
+        { }
         <div className="mb-10 text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-white">
             Stream Torrents instantly. <br className="hidden md:block" /> No downloads required.
@@ -58,7 +58,7 @@ function App() {
                   value={inputLink}
                   onChange={(e) => {
                     setInputLink(e.target.value);
-                    if (error) setError(''); // টাইপ করা শুরু করলে এরর মুছে যাবে
+                    if (error) setError('');
                   }}
                   placeholder="Paste magnet link here (starts with magnet:?)..."
                   className={`w-full pl-12 pr-4 py-4 bg-gray-900/50 border rounded-xl focus:outline-none focus:ring-1 transition-all text-white placeholder-gray-500
@@ -74,7 +74,7 @@ function App() {
               </button>
             </div>
 
-            {/* এরর মেসেজ ডিসপ্লে */}
+            { }
             {error && (
               <div className="flex items-center justify-center gap-2 text-red-500 text-sm mt-2">
                 <AlertCircle size={16} />
@@ -84,12 +84,12 @@ function App() {
           </form>
         </div>
 
-        {/* প্লেয়ার সেকশন */}
+        { }
         {activeMagnet ? (
           <div className="animate-fade-in-up">
             <div className="flex items-center justify-between mb-4 px-2">
               <h3 className="text-lg font-medium text-gray-300">
-                {/* যদি লিঙ্ক অনেক বড় হয়, তবে প্রথম কিছু অংশ দেখাবে */}
+                { }
                 Now Playing: Custom Stream
               </h3>
             </div>

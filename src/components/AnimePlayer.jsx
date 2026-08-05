@@ -9,14 +9,14 @@ const AnimePlayer = ({ magnetLink, title }) => {
     useEffect(() => {
         if (!magnetLink) return;
 
-        // ব্যাকএন্ডের API URL তৈরি
-        const streamUrl = `http://localhost:4000/stream?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${audioIndex}`;
+
+        const streamUrl = `https://media-player-server-site.onrender.com?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${audioIndex}`;
 
         artRef.current = new Artplayer({
             container: playerRef.current,
             url: streamUrl,
             title: title || 'Now Playing',
-            theme: '#ef4444', // অ্যানিমে ওয়েবসাইটের মতো লাল/ডার্ক থিম
+            theme: '#ef4444',
             volume: 0.8,
             autoplay: true,
             pip: true,
@@ -27,7 +27,7 @@ const AnimePlayer = ({ magnetLink, title }) => {
             fullscreenWeb: true,
             miniProgressBar: true,
 
-            // কাস্টম অডিও ট্র্যাক সুইচার
+
             controls: [
                 {
                     position: 'right',
@@ -38,8 +38,8 @@ const AnimePlayer = ({ magnetLink, title }) => {
                     ],
                     onSelect: function (item) {
                         setAudioIndex(item.index);
-                        // অডিও চেঞ্জ হলে প্লেয়ার নতুন URL দিয়ে আবার প্লে শুরু করবে
-                        const newUrl = `http://localhost:4000/stream?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${item.index}`;
+
+                        const newUrl = `https://media-player-server-site.onrender.com?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${item.index}`;
                         artRef.current.switchUrl(newUrl);
                         return 'Audio: ' + (item.index === 0 ? 'JP' : 'EN');
                     },
