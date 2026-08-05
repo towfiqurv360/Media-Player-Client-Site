@@ -10,7 +10,7 @@ const AnimePlayer = ({ magnetLink, title }) => {
         if (!magnetLink) return;
 
 
-        const streamUrl = `https://media-player-server-site.onrender.com?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${audioIndex}`;
+        const streamUrl = `https://media-player-server-site.onrender.com/stream?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${audioIndex}`;
 
         artRef.current = new Artplayer({
             container: playerRef.current,
@@ -39,7 +39,7 @@ const AnimePlayer = ({ magnetLink, title }) => {
                     onSelect: function (item) {
                         setAudioIndex(item.index);
 
-                        const newUrl = `https://media-player-server-site.onrender.com?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${item.index}`;
+                        const newUrl = `https://media-player-server-site.onrender.com/stream?magnet=${encodeURIComponent(magnetLink)}&audioIndex=${item.index}`;
                         artRef.current.switchUrl(newUrl);
                         return 'Audio: ' + (item.index === 0 ? 'JP' : 'EN');
                     },
